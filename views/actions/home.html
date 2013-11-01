@@ -1,0 +1,59 @@
+		<div class="timeslider"><div></div></div>
+		<div class="page page-home">
+			<div class="username">
+			    {{#name}}{{#.}}
+                    <div class="welcomeback">
+					<p>
+						Welkom terug <strong>{{name}}</strong><br>
+						<a href="#">Niet {{name}}?</a>
+					</p>
+					<div class="scores">
+						<p><strong>{{highscore.score}}</strong><br>Jouw highscore</p>
+						<p><strong>{{highscore.rondes}}</strong><br>Aantal rondes</p>
+					</div>
+        			<div class="action action-alt">
+        				<a href="http://www.facebook.com/sharer.php?s=100&p[title]=Ik haalde "+{{highscore.score}}+" punten met DuurderGluurder&p[url]=http%3a%2f%2ffdx-c9-rawne_1.c9.io" target="_blank">Deel je highscore</a>
+        			</div>
+    			</div>
+                {{/.}}{{/name}}
+			    {{^name}}
+				    <p class="input"><label for="inputUserName">Je naam</label> <input id="inputUserName" placeholder="funderiaan"></p>
+				{{/name}}
+				
+    			</div>
+			<div class="action"><a href="/speel">START SPEL</a></div>
+			<div class="highscores-list">
+				<h2>Highscores</h2>
+				<ul>
+					{{#highscores}}
+					<li>{{naam}} <span>{{score}}</span></li>
+					{{/highscores}}
+				</ul>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript">
+    $( document ).ready(function() {
+        $("div.action a").click(function()
+            {
+                var ingevulde_naam = $("#inputUserName").val();
+                if(ingevulde_naam !== undefined)
+                {
+                    document.cookie = "name=" + ingevulde_naam;
+                }
+                return true;
+            });
+            $("div.welcomeback a").click(function()
+            {
+                $("div.welcomeback").html('<p class="input"><label for="inputUserName">Je naam</label> <input id="inputUserName" placeholder="funderiaan"></p>');
+            });
+    });
+</script>
+<!--
+<div>
+<input type="button" value="I like this!" onclick="postLike();">
+</div>
+
+<div id="result"></div>
+-->

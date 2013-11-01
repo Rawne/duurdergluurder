@@ -1,0 +1,36 @@
+
+<div class="timeslider"><div></div></div>
+
+		<ul class="objects page-correct">
+			<li class="object-left">
+				<div class="figure">
+					{{{imageUrl1}}}
+				</div>
+			</li>
+			<li class="object-right">
+				<div class="figure">
+					{{{imageUrl2}}}
+				</div>
+			</li>
+		</ul>
+
+<div id="loading-overlay"></div>
+<script type="text/javascript">
+$( document ).ready(function() {
+    $("#next").on('click',function()
+    {
+        $("#loading-overlay").show();
+        $.get( "speel/{{session}}", function( data ) {
+            $("#loading-overlay").hide();
+            $( ".content" ).html( data );
+        });
+        return false;
+    });
+    var widthImg = $('.objects li.object-left').width();
+	var heightImg = widthImg*0.66;
+	$('ul.objects div.figure, ul.objects div.figure ul li').each(function(){
+		$(this).width(widthImg);
+		$(this).height(heightImg);
+	});
+});
+</script>

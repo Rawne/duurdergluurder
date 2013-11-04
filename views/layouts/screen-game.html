@@ -4,7 +4,7 @@
 	<meta content="width=device-width, user-scalable=no minimum-scale=1.0 maximum-scale=1.0" name="viewport" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name = "format-detection" content="telephone=no" />
-	<meta property="og:title" content="Ik haalde "+{{aantalCorrect}}+" punten met DuurderGluurder" />
+	<meta property="og:title" content="Ik haalde punten in rondes met DuurderGluurder" />
 	<meta property="og:description" content="" />
 	<meta property="og:image" content="http://djhedrick.files.wordpress.com/2012/02/gold-trophy.jpg" />
 	<meta property="og:url" content="http://http://fdx-c9-rawne_1.c9.io/" />
@@ -18,13 +18,17 @@
   </head>
   <body id="body">
   <div id="container">
+
 	<div class="hdr">
 		<div><img id="logo" src="http://www.funda.nl/img/hdr/funda-logo-hp.gif"> <span class="logoname">DuurderGluurder</span></div>
 	</div>
     <div class="content">
       {{{content_for_layout}}} 
-      </div>
+    </div>
+    <div id="loading-overlay" style="display:none;">
+      <div class="overlayer"></div>
+      <div class="popup-container"><div><span class="loading-ind">Ronde wordt geladen</span></div></div>
+    </div>
   </div>
-  
   </body>
 </html>

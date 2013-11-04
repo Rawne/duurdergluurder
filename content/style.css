@@ -19,14 +19,16 @@ html,body {margin:0;padding:0;background:#f5f5f5;}
 .page{padding:20px 0;}
 .page-home {display:block;background-color:#fff;padding:20px 0;margin:0 auto;max-width:400px;}
 .page > p{padding:10px;text-align:center;font-size:1.15em;color:#666;}
-.page .scores > p {width:45%;display:inline-block;text-align:center;color:#666;}
 .page > h2{padding:10px;text-align:center;font-size:1.5em;}
+h2.result{font-weight:normal;}
 .page p strong{font-size:1.25em;color:#000;}
 
 .scores {padding:10px;}
+.scores > p {width:45%;display:inline-block;text-align:center;color:#666;}
+.scores > p strong {font-size:1.25em;}
 
 ul.objects{position:relative;list-style:none;z-index:0;}
-ul.objects > li{display:inline-block;width:49.5%;background-color:#fff;margin-bottom:-2px;padding-bottom:20px;}
+ul.objects > li{display:inline-block;width:49.5%;background-color:#fff;margin-bottom:-2px;padding-bottom:20px;vertical-align:top;}
 ul.objects > li.object-right{right:0;position:static;}
 ul.objects > li .slider img{width:100%;}
 ul.objects > li .object-content{padding:10px;}
@@ -34,15 +36,14 @@ ul.objects > li .object-content h2{font-size:1.25em;margin-bottom:5px;color:#000
 ul.objects > li .object-content .object-specs{color:#666;display:block;list-style:none;}
 ul.objects > li .object-content .object-specs > li{margin-bottom: 5px;}
 
-
-.username {margin:-20px 0 20px;text-align:center;background-color: #fff;padding:20px 0;border-bottom: 10px solid #eee;}
+.username {margin:0 0 20px;padding:10px 20px;background-color: #fff;}
 .username label {font-size: 1.15em;color:#000;margin-right:10px;}
 .username input {border:1px solid #36c;font-size:1.3em; width:60%;padding:5px;}
-.username .welcomeback p {font-size:1.15em;line-height: 1.3em;}
-.username .welcomeback p strong {font-size:1.3em;}
-.username .welcomeback p a {font-size:.9em;color:#36c;}
+.username .welcomeback {font-size:1.15em;line-height: 1.5em;}
+.username .welcomeback strong {font-size:1.5em;}
+.username .welcomeback a {font-size:.75em;color:#36c;line-height:.75em;}
 
-.highscores-list {margin-top:20px;}
+.highscores-list {}
 .highscores-list h2{padding:10px 20px;}
 .highscores-list ul {list-style:none;border-top:2px solid #ccc;}
 .highscores-list ul li {border-bottom:1px solid #eee;padding:10px 20px;font-size:1.15em;line-height: 1.3em;}
@@ -50,11 +51,11 @@ ul.objects > li .object-content .object-specs > li{margin-bottom: 5px;}
 .highscores-list ul li span{font-size:1.3em;font-weight:700;text-align:right;float:right;}
 
 
-.action{width:100%;text-align:center;padding:20px 0 0;}
-.action a{display:block;background-color:#36c;border-radius:3px;-webkit-border-top-left-radius:10px;-moz-border-radius-topleft:10px;border-top-left-radius:10px;-webkit-border-top-right-radius:10px;-moz-border-radius-topright:10px;border-top-right-radius:10px;-webkit-border-bottom-right-radius:10px;-moz-border-radius-bottomright:10px;border-bottom-right-radius:10px;-webkit-border-bottom-left-radius:10px;-moz-border-radius-bottomleft:10px;border-bottom-left-radius:10px;
-	text-indent:-6.55px;border:2px solid #cccccc;display:inline-block;color:#ffffff;font-family:Arial;font-size:1.5em;font-weight:normal;font-style:normal;height:40px;line-height:40px;width:80%;text-decoration:none;text-align:center;}
-.action.action-alt a{background-color:#eee;color:#36c;width:39%;display:inline-block;font-size:1em;height:25px;line-height:25px;}
-
+.action{width:100%;text-align:center;padding:20px 0 0;text-transform:uppercase;}
+.action a{display:block;background-color:#36c;
+	text-indent:-6.55px;border:2px solid #cccccc;display:inline-block;color:#ffffff;font-size:1.5em;font-weight:normal;font-style:normal;height:40px;line-height:40px;width:80%;text-decoration:none;text-align:center;}
+.action.action-alt a{background-color:#eee;color:#36c;font-size:.85em;height:25px;line-height:25px;}
+.action.half a {width:39%;}
 
 @media screen and (max-width: 500px) {
 	ul.objects > li{display:inline-block;width:100%;}
@@ -96,3 +97,11 @@ ul.link-list.paging-list {text-align: center; letter-spacing: -4px; padding: 0;}
 
 .overlay{position:absolute;top:0;height:100%;width:100%;background-color:rgba(255,255,255,0.75);z-index:999;}
 .overlay img{position:absolute;top:50%;left:50%;margin:-20% 0 0 -20%;width:150px;}
+
+#loading-overlay, #loading-overlay .overlayer {position:fixed;overflow:hidden;width:100%;height:100%;top:0;left:0;right:0;;bottom:0;z-index:99999;}
+#loading-overlay .overlayer {background-color:#fff;background-color:rgba(0,0,0,.75);}
+#loading-overlay .popup-container {position: relative;top: 45%;left: 0;z-index: 999999;}
+#loading-overlay .popup-container div {margin: 0 auto;background-color: #fff;padding: 50px;text-align: center;font-size: 1.5em;}
+.loading-ind {background:url(http://www.funda.nl/img/mobiel/icn/loading-ind-hires.gif) no-repeat 0 0 transparent;display:inline-block;height:32px;padding-left:45px;line-height:35px;}
+
+

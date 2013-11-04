@@ -3,11 +3,17 @@
   "version": "0.0.1",
   "description": "A game",
   "main": "server.js",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Rawne/duurdergluurder.git"
+  },
   "author": "Rawne & PaulusDJ",
   "dependencies": {
     "async": "~0.2.8",
     "express": "~3.2.4",
-    "socket.io": "~0.9.14"
+    "socket.io": "~0.9.14",
+    "mongoskin":"0.6.0",
+    "mustache":"0.7.2"
   }
+  
 }

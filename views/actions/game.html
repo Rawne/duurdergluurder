@@ -1,50 +1,49 @@
 <div class="timeslider"><div></div></div>	
-		<ul class="objects">
-			<li class="object-left">
-				<div class="figure">
-					<ul>
-						<li><img id="option1" src="{{object1.FotoLarge}}"></li>
-					</ul>
-				</div>
-				<div class="object-content">
-					<h2>{{object1.Woonplaats}}</h2>
-					<ul class="object-specs">
-						<li class="aka">Aantal kamers: <strong>{{object1.AantalKamers}}</strong></li>
-						<li class="wonop">Woonoppervlakte: <strong>{{object1.Woonoppervlakte}} m&sup2;</strong></li>
-					</ul>
-				</div>
-				<div class="action"><a href="#">DUURDER</a></div>
-			</li>
-			<li class="object-right">
-				<div class="figure">
-					<ul>
-						<li><img id="option1" src="{{object2.FotoLarge}}"></li>
-					</ul>
-				</div>
-				<div class="object-content">
-					<h2>{{object2.Woonplaats}}</h2>
-					<ul class="object-specs">
-						<li class="aka">Aantal kamers: <strong>{{object2.AantalKamers}}</strong></li>
-						<li class="wonop">Woonoppervlakte: <strong>{{object2.Woonoppervlakte}} m&sup2;</strong></li>
-					</ul>
-				</div>
-				<div class="action"><a href="#">DUURDER</a></div>
-			</li>
-		</ul>
+<ul class="objects">
+	<li class="object-left">
+		<div class="figure">
+			<ul>
+				<li><img id="option1" src="{{object1.FotoLarge}}"></li>
+			</ul>
+		</div>
+		<div class="object-content">
+			<h2>{{object1.Woonplaats}}</h2>
+			<ul class="object-specs">
+				<li style="display:none;" class="aka">Aantal kamers: <strong>{{object1.AantalKamers}}</strong></li>
+				<li style="display:none;" class="wonop">Woonoppervlakte: <strong>{{object1.Woonoppervlakte}} m&sup2;</strong></li>
+			</ul>
+		</div>
+		<div class="action"><a id="object1" href="#">DUURDER</a></div>
+	</li>
+	<li class="object-right">
+		<div class="figure">
+			<ul>
+				<li><img id="option2" src="{{object2.FotoLarge}}"></li>
+			</ul>
+		</div>
+		<div class="object-content">
+			<h2>{{object2.Woonplaats}}</h2>
+			<ul class="object-specs">
+				<li style="display:none;" class="aka">Aantal kamers: <strong>{{object2.AantalKamers}}</strong></li>
+				<li style="display:none;" class="wonop">Woonoppervlakte: <strong>{{object2.Woonoppervlakte}} m&sup2;</strong></li>
+			</ul>
+		</div>
+		<div class="action"><a id="object2" href="#">DUURDER</a></div>
+	</li>
+</ul>
 
-<script type="text/javascript">
+<script>
 $( document ).ready(function() {
-    $("li.object-left div.action a").click(function()
-    {
-        $.get( "selection/1", function( data ) {
-            $( ".content" ).html( data );
-        });
-        $('.timeslider div').stop();
-        return false;
-    });
-    $("li.object-right div.action a").click(function()
-    {
-        $.get( "selection/2", function( data ) {
+    $("#object1, #object2").click(function(){
+        var $this = $(this);
+        var selection;
+        console.log($this.attr('id'));
+        if ($this.attr('id') == 'object1'){
+            selection = "selection/1";
+        } else {
+            selection = "selection/2"
+        }
+        $.get( selection, function( data ) {
             $( ".content" ).html( data );
         });
         $('.timeslider div').stop();
@@ -57,7 +56,7 @@ $( document ).ready(function() {
 		$(this).width(widthImg);
 		$(this).height(heightImg);
 	});
-	$('.figure ul li img').each(function(){
+	/*$('.figure ul li img').each(function(){
 		var imgSrc = $(this).attr('src');
 		
 		console.log(imgSrc);
@@ -68,24 +67,16 @@ $( document ).ready(function() {
 		{
 			parentUL.append('<li><img src="http://cloud.funda.nl/valentina_media/'+imgTempSrc[4]+'/'+imgTempSrc[5]+'/'+(parseInt(imgNr[0])+i)+'_groot.jpg"></li>');
 		}
-	});
+	});*/
 });
 </script>
 <script src="../carousel.js"></script>
 <script type="text/javascript">
 $( document ).ready(function() {
-    $(".wonop").hide();
-    $(".aka").hide();
 	var widthImg = $('.objects li.object-left').width();
 	var heightImg = widthImg*0.66;
-    setTimeout(function()
-        {
-            $(".aka").show();
-        },5000);
-        setTimeout(function()
-        {
-            $(".wonop").show();
-        },10000);
+    setTimeout(function(){$(".aka").show();},5000);
+    setTimeout(function(){$(".wonop").show();},10000);
 	$('ul.objects div.figure .paging-list').each(function(){
 		$(this).width(widthImg);
 		$(this).height(heightImg);

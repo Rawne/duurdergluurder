@@ -13,8 +13,7 @@
 </ul>
 <script type="text/javascript">
 $( document ).ready(function() {
-    $("#next").on('click',function()
-    {
+    $("#next, #startNew").on('click',function(){
         $("#loading-overlay").show();
         $.get( "speel/{{session}}", function( data ) {
             $("#loading-overlay").hide();

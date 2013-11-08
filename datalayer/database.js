@@ -61,10 +61,12 @@ this.get_highscores = function(callback) {
     }  
   });
 }
+this.remove_highscore = function(naam) {
+    db.collection('highscores').remove({naam: naam});
+}
 
-
-this.remove_session = function(id, score, rondes) {
-    db.collection('highscores').remove({id: id});
+this.remove_session = function(id) {
+    db.collection('sessions').remove({id: id});
 }
 
 this.get_session = function(id, callback) {
@@ -91,7 +93,7 @@ this.update_session_correct = function(id, totalScore) {
 
 this.update_session_incorrect = function(id) {
     db.collection('sessions').update({id: id.toString()}, {$inc: {incorrect : 1}});
-
+    this.remove_session(id);
 }
 
 this.update_session = function(id, prijs1, prijs2) {

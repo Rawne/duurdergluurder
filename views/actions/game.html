@@ -47,7 +47,6 @@ $( document ).ready(function() {
     $("#object1, #object2").click(function(){
         var $this = $(this);
         var selection;
-        console.log($this.attr('id'));
         if ($this.attr('id') == 'object1'){
             selection = "selection/1";
         } else {
@@ -55,19 +54,23 @@ $( document ).ready(function() {
         }
         $.get( selection, function( data ) {
             $( ".content" ).html( data );
+            setLayout();
         });
         $('.timeslider div').stop();
         clearTimeout(akaTimer);
         clearTimeout(wonopTimer);
         return false;
     });
-
-	var widthImg = $('.objects li.object-left').width();
-	var heightImg = widthImg*0.66;
-	$('ul.objects div.figure, ul.objects div.figure ul li').each(function(){
-		$(this).width(widthImg);
-		$(this).height(heightImg);
-	});
+    function setLayout()
+    {
+        var widthImg = $('.objects li.object-left').width();
+    	var heightImg = widthImg*0.66;
+    	$('ul.objects div.figure, ul.objects div.figure ul li').each(function(){
+    		$(this).width(widthImg);
+    		$(this).height(heightImg);
+	    });
+    }
+	setLayout();
 	/*$('.figure ul li img').each(function(){
 		var imgSrc = $(this).attr('src');
 		

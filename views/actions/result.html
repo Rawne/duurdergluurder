@@ -13,12 +13,16 @@
 </ul>
 <script type="text/javascript">
 $( document ).ready(function() {
-    $("#next, #startNew").on('click',function(){
+    $("#next").on('click',function(){
         $("#loading-overlay").show();
         $.get( "speel/{{session}}", function( data ) {
             $("#loading-overlay").hide();
             $( ".content" ).html( data );
         });
+        return false;
+    });
+    $("#startNew").on('click',function(){
+        window.location = "/speel";
         return false;
     });
     var widthImg = $('.objects li.object-left').width();

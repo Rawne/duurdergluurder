@@ -1,7 +1,7 @@
 var http  = require('http');
 const host = 'partnerapi.funda.nl';
 const APIkey = '85c4a5975ed84e0c885594ba76cbd11b';
-const zo = '&zo=/heel-nederland/bestaande-bouw/';
+const zo = '&zo=/heel-nederland/';
 var PageNumber = 15000;
 var objectNumber = 15;
 
@@ -22,13 +22,13 @@ this.randomhouses = function(callback) {
           host: 'partnerapi.funda.nl',
           path: path1
         };
-    
+    console.log(path1);
     var path2 = '/feeds/Aanbod.svc/json/'+ APIkey + '/?type=' + aanbod + zo + paging2;
     var options2 = {          
           host: 'partnerapi.funda.nl',
           path: path2
         };
-    
+    console.log(path2);
     this.resultlistFromAPI(options1, function(json1) {
         if(json1 === null)
         {

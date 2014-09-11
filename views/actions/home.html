@@ -12,12 +12,18 @@
 				<p><strong>{{highscore.rondes}}</strong><br>Aantal rondes</p>
 			</div>
 			<div class="action action-alt half">
-				<a href="http://www.facebook.com/sharer.php?s=100&p[title]=Ik haalde "+{{{highscore.score}}}+" punten met DuurderGluurder&p[url]=http%3a%2f%2ffdx-c9-rawne_1.c9.io" target="_blank">Deel je highscore</a>
+				<fb:login-button id="fbBut" scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>  <a href="http://www.facebook.com/sharer.php?s=100&p[title]=Ik haalde "+{{{highscore.score}}}+" punten met DuurderGluurder&p[url]=http%3a%2f%2ffdx-c9-rawne_1.c9.io" target="_blank">Deel je highscore</a>
 			</div>
             {{/.}}{{/name}}
     	    {{^name}}
-    		<p class="input"><label for="inputUserName">Je naam</label> <input id="inputUserName" placeholder="funderiaan"></p>
+    		<p class="input"><label for="inputUserName">Je naam</label> <input id="inputUserName" placeholder="funderiaan">
+    			<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+				</fb:login-button>
+    		</p>
+    		
     		{{/name}}
+    		
+
     	</div>
     	<div class="action"><a href="/speel">START spel</a></div>
     </li>
@@ -35,6 +41,7 @@
 
 <script type="text/javascript">
     $( document ).ready(function() {
+    	$("#fbBut").hide();
         $("div.action a").click(function(){
             $("#loading-overlay").show();
             var ingevulde_naam = $("#inputUserName").val();
@@ -43,8 +50,10 @@
             }
             return true;
         });
-        $("div.welcomeback a").click(function(){
-            $("div.welcomeback").html('<p class="input"><label for="inputUserName">Je naam</label> <input id="inputUserName" placeholder="funderiaan"></p>');
+        $("p.welcomeback a").click(function(){
+            $("p.welcomeback").html('<p class="input"><label for="inputUserName">Je naam</label> <input id="inputUserName" placeholder="funderiaan"></p>');
+            $("#fbBut").show();
+            return false;
         });
     });
 </script>

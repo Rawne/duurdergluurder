@@ -4,19 +4,33 @@
 	<meta content="width=device-width, user-scalable=no minimum-scale=1.0 maximum-scale=1.0" name="viewport" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name = "format-detection" content="telephone=no" />
-	<meta property="og:title" content="Ik haalde punten in rondes met DuurderGluurder" />
-	<meta property="og:description" content="" />
-	<meta property="og:image" content="http://djhedrick.files.wordpress.com/2012/02/gold-trophy.jpg" />
-	<meta property="og:url" content="http://fundaduurdergluurder.herokuapp.com" />
-	<meta property="og:site_name" content="duurdergluurder" />
-	<meta property="fb:app_id" content="201092619940862" />
-    <title>DuurderGluurder</title>
-    <link rel="stylesheet" href="../style.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<title>DuurderGluurder</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 
   </head>
   <body id="body">
+  <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '201092619940862',
+          xfbml      : true,
+          version    : 'v2.0',
+          status     : true
+        });
+      };
+      
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+       
+    </script>
+    
   <div id="container">
 
 	<div class="hdr">
@@ -29,6 +43,13 @@
       <div class="overlayer"></div>
       <div class="popup-container"><div><span class="loading-ind">Ronde wordt geladen</span></div></div>
     </div>
+    <div
+  class="fb-like"
+  data-send="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
   </div>
+  
   </body>
 </html>

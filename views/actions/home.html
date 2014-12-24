@@ -18,7 +18,9 @@
     	    {{^name}}
     		<p class="input"><label for="inputUserName">Je naam</label> <input id="inputUserName" placeholder="funderiaan">
     		</p>
-    		
+    		<div class="action action-alt half">
+    		<fb:login-button id="fbBut" scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+    		</div>
     		{{/name}}
     		
 
@@ -39,7 +41,10 @@
 
 <script type="text/javascript">
     $( document ).ready(function() {
-    	$("#fbBut").hide();
+    	if($(".welcomeback").length != 0)
+    	{
+    		$("#fbBut").hide();
+    	}
         $("div.action a").click(function(){
             $("#loading-overlay").show();
             var ingevulde_naam = $("#inputUserName").val();
@@ -51,7 +56,11 @@
         $("p.welcomeback a").click(function(){
             $("p.welcomeback").html('<p class="input"><label for="inputUserName">Je naam</label> <input id="inputUserName" placeholder="funderiaan"></p>');
             $("#fbBut").show();
+            $(".scores").hide();
+            $(".action-alt a").hide();
+            document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC"; 
             return false;
         });
     });
+
 </script>
